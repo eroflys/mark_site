@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+	div.Os {
+	position: fixed;
+	top: 0;
+	}
+	</style>
+</head>
+<body>
+    <div class="Os"> <a href="add">Добавить подростка</a> </div>
+    <p>
+	&nbsp; &nbsp; </p>
+    <form action="" method="post">
+    <p>
+	    <input type="text" name="search query" />
+	</p>
+    <p><input type="submit" name="submit_button" value="Искать" /></p>
+    </form>
+
+    <form action="" method="post">
+    <table>
+        <tr><th>Имя</th><th>Фамилия</th><th>Отмечен?</th><th>Отметить</th></tr>
+        {% for i in teens %}
+        <tr><td>{{i[0]}}</td> <td>{{i[1]}}</td> <td>{{i[2][-1]}}</td> <td><input type="submit" name={{"att"+i[0]+"_"+i[1]}} value="Отметить" /></td></tr>
+        {% endfor %}
+    </table>
+    </form>
+    <p>{{spec_status}}</p>
+</body>
+</html>
+
+
